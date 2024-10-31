@@ -4,17 +4,17 @@ import { Post } from "../model/types"
 const POST_ENDPOINT = "/posts"
 
 export const postApi = {
-  fetchPosts: async (limit: number, skip: number) => {
+  getPosts: async (limit: number, skip: number) => {
     const res = await axiosInstance.get(`${POST_ENDPOINT}`, { params: { limit, skip } })
     return res.data
   },
 
-  fetchPostsByTag: async (tag: string) => {
+  getPostsByTag: async (tag: string) => {
     const res = await axiosInstance.get(`${POST_ENDPOINT}/tag/${tag}`)
     return res.data
   },
 
-  fetchPostTags: async () => {
+  getPostTags: async () => {
     const res = await axiosInstance.get(`${POST_ENDPOINT}/tags`)
     return res.data
   },
