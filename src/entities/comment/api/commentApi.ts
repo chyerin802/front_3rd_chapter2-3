@@ -9,7 +9,7 @@ export const commentApi = {
     return res.data
   },
 
-  createComment: async (comment: Comment) => {
+  createComment: async (comment: Omit<Comment, "id">) => {
     const res = await axiosInstance.post(`${COMMENTS_ENDPOINT}/add`, comment)
     return res.data
   },

@@ -24,13 +24,13 @@ export const postApi = {
     return res.data
   },
 
-  createPost: async (post: Post) => {
-    const res = await axiosInstance.post(`${POST_ENDPOINT}/add`, { post })
+  createPost: async (post: Omit<Post, "id">) => {
+    const res = await axiosInstance.post(`${POST_ENDPOINT}/add`, post)
     return res.data
   },
 
-  updatePost: async (post: Post) => {
-    const res = await axiosInstance.put(`${POST_ENDPOINT}/${post.id}`, post)
+  updatePost: async (id: number, post: Partial<Post>) => {
+    const res = await axiosInstance.put(`${POST_ENDPOINT}/${id}`, post)
     return res.data
   },
 
